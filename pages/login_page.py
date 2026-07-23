@@ -6,6 +6,7 @@ class LoginPage:
         self.username = "#user-name"
         self.password = "#password"
         self.login_button= "#login-button"
+        self.error_message = "[data-test='error']"
 
     def open(self):
         self.page.goto(
@@ -26,4 +27,8 @@ class LoginPage:
         self.page.click(
             self.login_button
         )
-
+    
+    def get_error_message(self):
+        return self.page.locator(
+            self.error_message
+        ).inner_text()
