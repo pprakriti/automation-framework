@@ -1,6 +1,12 @@
 {
     "invalid_user": {
         "username": "invalid_user",
-        "password": "invalid_password"
+        "password": "invalid_password",
+        "expected_error": "Username and password do not match"
+    },
+    "locked_user": {
+        "username": "locked_out_user",
+        "password": "secret_sauce",
+        "expected_error": "Sorry, this user has been locked out"
     }
 }
