@@ -1,7 +1,9 @@
-class LoginPage:
+from pages.base_page import BasePage
+
+class LoginPage(BasePage):
 
     def __init__(self, page):
-        self.page = page
+        super().__init__(page)
 
         self.username = "#user-name"
         self.password = "#password"
@@ -15,20 +17,20 @@ class LoginPage:
 
     def login(self, username, password):
 
-        self.page.fill(
+        self.fill(
             self.username,
             username
         )
-        self.page.fill(
+        self.fill(
             self.password,
             password
         )
 
-        self.page.click(
+        self.click(
             self.login_button
         )
     
     def get_error_message(self):
-        return self.page.locator(
+        return self.get_text(
             self.error_message
-        ).inner_text()
+        )
