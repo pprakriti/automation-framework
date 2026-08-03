@@ -36,5 +36,6 @@ jobs:
         env:
           SAUCE_USERNAME: standard_user
           SAUCE_PASSWORD: secret_sauce
+          HEADLESS: true
         run: |
           pytest

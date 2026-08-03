@@ -7,8 +7,12 @@ from playwright.sync_api import sync_playwright
 @pytest.fixture
 def browser_page():
 
+    headless = os.getenv("HEADLESS", "false").lower() == "true"
+
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(
+            headless=headless
+        )
 
         page = browser.new_page()
 
@@ -42,4 +46,3 @@ def pytest_runtest_makereport(item, call):
             print(
                 f"\nScreenshot saved: {screenshot_path}"
             )
- 
