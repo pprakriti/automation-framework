@@ -38,7 +38,7 @@ jobs:
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
           HEADLESS: true
         run: |
-          pytest
+          pytest --html=reports/test_report.html --self-contained-html
 
       - name: Upload pytest report
         if: always()
