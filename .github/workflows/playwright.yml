@@ -34,8 +34,8 @@ jobs:
 
       - name: Run tests
         env:
-          SAUCE_USERNAME: standard_user
-          SAUCE_PASSWORD: secret_sauce
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
           HEADLESS: true
         run: |
           pytest
