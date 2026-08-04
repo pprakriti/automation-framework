@@ -10,6 +10,7 @@ class InventoryPage:
         self.title = ".title"
         self.add_to_cart_button = "#add-to-cart-sauce-labs-backpack"
         self.cart_badge = ".shopping_cart_badge"
+        self.cart_link = ".shopping_cart_link"
 
 
     def is_loaded(self):
@@ -57,3 +58,13 @@ class InventoryPage:
         return self.page.locator(
             self.cart_badge
         ).inner_text()
+
+    def open_cart(self):
+
+        self.logger.info(
+            "Opening cart page"
+        )
+
+        self.page.locator(
+            self.cart_link
+        ).click()
