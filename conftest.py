@@ -3,16 +3,39 @@ import pytest
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 
+def pytest_addoption(parser):
+
+    parser.addoption(
+        "--browser",
+        action="store",
+        default="chromium",
+        help="Browser to run tests on"
+    )
+
 
 @pytest.fixture
-def browser_page():
+def browser_page(request):
 
     headless = os.getenv("HEADLESS", "false").lower() == "true"
 
+    browser_name = request.config.getoption("--browser")
+
     with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=headless
-        )
+
+        if browser_name == "firefox":
+            browser = p.firefox.launch(
+                headless=headless
+            )
+
+        elif browser_name == "webkit":
+            browser = p.webkit.launch(
+                headless=headless
+            )
+
+        else:
+            browser = p.chromium.launch(
+                headless=headless
+            )
 
         page = browser.new_page()
 
