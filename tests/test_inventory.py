@@ -1,7 +1,8 @@
+import pytest
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
 
-
+@pytest.mark.smoke
 def test_add_product_to_cart(browser_page):
 
     login_page = LoginPage(browser_page)

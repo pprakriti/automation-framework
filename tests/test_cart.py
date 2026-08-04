@@ -1,8 +1,12 @@
+
+import pytest
+
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
 from pages.cart_page import CartPage
 
 
+@pytest.mark.regression
 def test_verify_product_in_cart(browser_page):
 
     login_page = LoginPage(browser_page)

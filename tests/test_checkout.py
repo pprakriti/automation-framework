@@ -1,3 +1,4 @@
+import pytest
 import os
 from dotenv import load_dotenv
 
@@ -12,6 +13,7 @@ from pages.checkout_page import CheckoutPage
 load_dotenv()
 
 
+@pytest.mark.regression
 def test_complete_checkout(browser_page):
 
     login_page = LoginPage(browser_page)

@@ -1,12 +1,13 @@
 import os
+import pytest  
 from dotenv import load_dotenv
-
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
 
 load_dotenv()
 
 
+@pytest.mark.smoke
 def test_successful_login(browser_page):
 
     login_page = LoginPage(browser_page)
@@ -18,5 +19,7 @@ def test_successful_login(browser_page):
        os.getenv("SAUCE_USERNAME"),
        os.getenv("SAUCE_PASSWORD")
     )
-
     assert inventory_page.is_loaded()
+    
+
+    
