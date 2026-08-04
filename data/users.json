@@ -1,12 +1,24 @@
 {
+    "standard_user": {
+        "username": "standard_user",
+        "password": "secret_sauce"
+    },
+
     "invalid_user": {
         "username": "invalid_user",
         "password": "invalid_password",
         "expected_error": "Username and password do not match"
     },
+
     "locked_user": {
         "username": "locked_out_user",
         "password": "secret_sauce",
         "expected_error": "Sorry, this user has been locked out"
+    },
+
+    "customer": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "postal_code": "94010"
     }
 }

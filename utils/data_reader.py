@@ -7,6 +7,20 @@ def load_test_data():
         return json.load(file)
 
 
+def get_user(username):
+
+    data = load_test_data()
+
+    return data[username]
+
+
+def get_customer():
+
+    data = load_test_data()
+
+    return data["customer"]
+
+
 def load_login_data():
 
     data = load_test_data()
@@ -18,4 +32,5 @@ def load_login_data():
             user["expected_error"]
         )
         for user in data.values()
+        if "expected_error" in user
     ]

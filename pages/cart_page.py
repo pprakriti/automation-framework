@@ -10,6 +10,7 @@ class CartPage:
 
         self.cart_title = ".title"
         self.product_name = ".inventory_item_name"
+        self.checkout_button = "#checkout"
 
 
     def is_loaded(self):
@@ -48,3 +49,13 @@ class CartPage:
         return self.page.locator(
             self.product_name
         ).inner_text()
+
+    def click_checkout(self):
+
+        self.logger.info(
+            "Clicking checkout button"
+        )
+
+        self.page.locator(
+            self.checkout_button
+        ).click()
